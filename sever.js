@@ -59,6 +59,8 @@ require('./app/routes/bacdaotao.routes')(app);
 require('./app/routes/hedaotao.routes')(app);
 require('./app/routes/khoadaotao.routes')(app);
 require('./app/routes/banner.routes')(app);
+require('./app/routes/tintuc.routes')(app);
+require('./app/routes/lop.routes')(app);
 
 
 
