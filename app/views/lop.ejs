@@ -163,9 +163,12 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Chọn Hệ đào tạo</label>
                                     <select name="IDhedaotao">
-                                        <% hedaotao.rows.forEach(function(hedaotao){ %>
-                                            <option value="<%= hedaotao.IDhedaotao %>">
-                                                <%= hedaotao.tenhedaotao %>
+                                        <option value="<%= ds_lop.IDhedaotao %>">
+                                            <%= ds_lop.tenhedaotao %>
+                                        </option>
+                                        <% chon_hedaotao.rows.forEach(function(chon_hedaotao){ %>
+                                            <option value="<%= chon_hedaotao.IDhedaotao %>">
+                                                <%= chon_hedaotao.tenhedaotao %>
                                             </option>
                                             <% }); %>
                                     </select>
@@ -173,9 +176,12 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Chọn bậc đào tạo</label>
                                     <select name="IDbacdaotao">
-                                        <% bacdaotao.rows.forEach(function(bacdaotao){ %>
-                                            <option value="<%= bacdaotao.IDbacdaotao %>">
-                                                <%= bacdaotao.tenbacdaotao %>
+                                        <option value="<%= ds_lop.IDbacdaotao %>">
+                                            <%= ds_lop.tenbacdaotao %>
+                                        </option>
+                                        <% chon_bacdaotao.rows.forEach(function(chon_bacdaotao){ %>
+                                            <option value="<%= chon_bacdaotao.IDbacdaotao %>">
+                                                <%= chon_bacdaotao.tenbacdaotao %>
                                             </option>
                                             <% }); %>
                                     </select>
@@ -183,9 +189,25 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Chọn khóa đào tạo</label>
                                     <select name="IDkhoadaotao">
-                                        <% khoadaotao.rows.forEach(function(khoadaotao){ %>
-                                            <option value="<%= khoadaotao.IDkhoadaotao %>">
-                                                <%= khoadaotao.niemkhoa %>
+                                        <option value="<%= ds_lop.IDkhoadaotao %>">
+                                            <%= ds_lop.niemkhoa %>
+                                        </option>
+                                        <% chon_khoadaotao.rows.forEach(function(chon_khoadaotao){ %>
+                                            <option value="<%= chon_khoadaotao.IDkhoadaotao %>">
+                                                <%= chon_khoadaotao.niemkhoa %>
+                                            </option>
+                                            <% }); %>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Chọn địa điểm học</label>
+                                    <select name="IDdaidiemhoc">
+                                        <option value="<%= ds_lop.IDdaidiemhoc %>">
+                                            <%= ds_lop.tendiadiemhoc %>
+                                        </option>
+                                        <% chon_diadiemhoc.rows.forEach(function(chon_diadiemhoc){ %>
+                                            <option value="<%= chon_diadiemhoc.IDdiadiemhoc %>">
+                                                <%= chon_diadiemhoc.tendiadiemhoc %>
                                             </option>
                                             <% }); %>
                                     </select>

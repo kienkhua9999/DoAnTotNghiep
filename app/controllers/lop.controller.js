@@ -113,9 +113,81 @@ exports.danhsach_lop = (req, res) => {
                                                                                                             if (err) {
                                                                                                                 res.end();
                                                                                                                 return console.error('error running query', err);
+                                                                                                            }else{
+                                                                                                                var chon_khoa=result;
+                                                                                        
+                                                                                                                pool_db.connect(function (err, client, done) {
+                                                                                                                    if (err) {
+                                                                                                                        return console.error('error', err);
+                                                                                                                    }
+                                                                                                                    client.query(`SELECT * FROM bacdaotaos where "IDbacdaotao" != ${chon_lop.rows[0].IDbacdaotao} `, function (err, result) {
+                                                                                                                        done();
+                                                                                    
+                                                                                                                        if (err) {
+                                                                                                                            res.end();
+                                                                                                                            return console.error('error running query', err);
+                                                                                                                        }else{
+                                                                                                                            var chon_bacdaotao=result;
+                                                                                                                            pool_db.connect(function (err, client, done) {
+                                                                                                                                if (err) {
+                                                                                                                                    return console.error('error', err);
+                                                                                                                                }
+                                                                                                                                client.query(`SELECT * FROM hedaotaos where "IDhedaotao" != ${chon_lop.rows[0].IDhedaotao} `, function (err, result) {
+                                                                                                                                    done();
+                                                                                                
+                                                                                                                                    if (err) {
+                                                                                                                                        res.end();
+                                                                                                                                        return console.error('error running query', err);
+                                                                                                                                    }else{
+                                                                                                                                        var chon_hedaotao = result;
+                                                                                                                                        pool_db.connect(function (err, client, done) {
+                                                                                                                                            if (err) {
+                                                                                                                                                return console.error('error', err);
+                                                                                                                                            }
+                                                                                                                                            client.query(`SELECT * FROM khoadaotaos where "IDkhoadaotao" != ${chon_lop.rows[0].IDkhoadaotao} `, function (err, result) {
+                                                                                                                                                done();
+                                                                                                            
+                                                                                                                                                if (err) {
+                                                                                                                                                    res.end();
+                                                                                                                                                    return console.error('error running query', err);
+                                                                                                                                                }else{
+                                                                                                                                                    var chon_khoadaotao = result
+                                                                                                                                                    pool_db.connect(function (err, client, done) {
+                                                                                                                                                        if (err) {
+                                                                                                                                                            return console.error('error', err);
+                                                                                                                                                        }
+                                                                                                                                                        client.query(`SELECT * FROM diadiemhocs where "IDdiadiemhoc" != ${chon_lop.rows[0].IDdaidiemhoc} `, function (err, result) {
+                                                                                                                                                            done();
+                                                                                                                        
+                                                                                                                                                            if (err) {
+                                                                                                                                                                res.end();
+                                                                                                                                                                return console.error('error running query', err);
+                                                                                                                                                            }else{
+                                                                                                                                                                var chon_diadiemhoc = result
+                                                                                                                                                                res.render("./lop.ejs", {chon_diadiemhoc:chon_diadiemhoc,chon_khoadaotao:chon_khoadaotao,chon_hedaotao:chon_hedaotao,chon_bacdaotao:chon_bacdaotao,chon_lop:chon_lop.rows[0],chon_khoa:chon_khoa, bacdaotao: bacdaotao, ds_lop: ds_lop,khoa:khoa,hedaotao:hedaotao,diadiemhoc:diadiemhoc,khoadaotao:khoadaotao });
+                                                                                                                                                            }
+                                                
+                                                                                                                                                            
+                                                                                                                                                        });
+                                                                                                                                                    });
+                                                                                                                                                }
+                                    
+                                                                                                                                                
+                                                                                                                                            });
+                                                                                                                                        });
+                                                                                                                                    }
+                        
+                                                                                                                                    
+                                                                                                                                });
+                                                                                                                            });
+                                                                                                                        }
+            
+                                                                                                                        
+                                                                                                                    });
+                                                                                                                });
                                                                                                             }
 
-                                                                                                            res.render("./lop.ejs", {chon_lop:chon_lop.rows[0],chon_khoa:result, bacdaotao: bacdaotao, ds_lop: ds_lop,khoa:khoa,hedaotao:hedaotao,diadiemhoc:diadiemhoc,khoadaotao:khoadaotao });
+                                                                                                           
                                                                                                         });
                                                                                                     });
                                                                                                 }
