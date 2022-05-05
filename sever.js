@@ -61,6 +61,7 @@ require('./app/routes/khoadaotao.routes')(app);
 require('./app/routes/banner.routes')(app);
 require('./app/routes/tintuc.routes')(app);
 require('./app/routes/lop.routes')(app);
+require('./app/routes/giangvien.routes')(app);
 
 
 
