@@ -62,6 +62,10 @@ require('./app/routes/banner.routes')(app);
 require('./app/routes/tintuc.routes')(app);
 require('./app/routes/lop.routes')(app);
 require('./app/routes/giangvien.routes')(app);
+require('./app/routes/detai.routes')(app);
+require('./app/routes/sinhvien.routes')(app);
+require('./app/routes/chude.routes')(app);
+require('./app/routes/hoidong.routes')(app);
 
 
 
