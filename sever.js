@@ -51,7 +51,7 @@ const dbc = require("./app/models");
 //   });
 // };
 require('./app/routes/auth.routes')(app);
-require('./app/routes/user.routes')(app);
+require('./app/routes/taikhoan.routes')(app);
 require('./app/routes/index.routes')(app);
 require('./app/routes/khoa.routes')(app);
 require('./app/routes/chuyennghanh.routes')(app);

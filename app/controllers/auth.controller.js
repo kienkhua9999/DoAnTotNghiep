@@ -6,6 +6,10 @@ const Op = db.Sequelize.Op;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
+exports.Dangnhap=(req,res)=>{
+  res.render('dangnhap.ejs');
+}
+
 exports.signup = (req, res) => {
   // Save User to Database
   User.create({
@@ -65,13 +69,7 @@ exports.signin = (req, res) => {
         for (let i = 0; i < roles.length; i++) {
           authorities.push("ROLE_" + roles[i].name.toUpperCase());
         }
-        res.status(200).send({
-          id: user.id,
-          username: user.username,
-          email: user.email,
-          roles: authorities,
-          accessToken: token
-        });
+        res.status(200).render('index.ejs');
       });
     })
     .catch(err => {
